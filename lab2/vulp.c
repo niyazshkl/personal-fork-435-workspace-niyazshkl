@@ -13,7 +13,7 @@ int main()
 
     if (!access(fn, W_OK))
     {
-        sleep(10);
+        // sleep(10); Removing Sleep after completion of Task 2A.
         fp = fopen(fn, "a+");
         fwrite("\n", sizeof(char), 1, fp);
         fwrite(buffer, sizeof(char), strlen(buffer), fp);
