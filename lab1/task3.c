@@ -1,6 +1,7 @@
 #include "lab1.h"
 
-#define LEN 16 // 128 bits
+// #define LEN 16 // 128 bits. 16 bytes * 8 bits/byte = 128 bits
+#define LEN 32 // 256 bits because 16 bytes * 8 bits/byte = 256 bits
 
 /* ------------------------------------------------------------------------------
  *
@@ -25,6 +26,13 @@ unsigned char* readrandom() {
    unsigned char *key = (unsigned char *)malloc(sizeof(unsigned char) * LEN);
    FILE* random = fopen("/dev/urandom", "r"); 
    fopen("/dev/urandom", "r"); 
+
+   /*fread(*buffer: pointer where data read will be stored,
+           size: size of each elemtents (bytes),
+           count: # elements
+           File* stream: poointer to file stream.)
+   */
+
    fread(key, sizeof(unsigned char) * LEN, 1, random); 
    fclose(random);
 

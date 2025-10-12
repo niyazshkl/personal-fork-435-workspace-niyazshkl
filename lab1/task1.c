@@ -21,10 +21,10 @@
  */
 unsigned char* generatekey(long long seed) {
     int i; 
-    unsigned char *key = (unsigned char*)malloc(sizeof(char) * KEYSIZE);
+    unsigned char *key = (unsigned char*)malloc(sizeof(char) * KEYSIZE); //KEYSIZE = 16, so allocate 16 bytes
 
-    printf("%lld\n", seed); 
-    srand(seed); // Line A
+    printf("%lld\n", seed);  
+    srand(seed); // Line A -> Seed the random number generator with the provided seed value (time).
 
     for (i = 0; i < KEYSIZE; i++){ 
         key[i] = rand()%256; 
