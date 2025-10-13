@@ -7,8 +7,8 @@ int main()
     char *fn = "/tmp/XYZ";
     char buffer[60];
     FILE *fp;
-    uid_t ruid = getuid();
-    uid_t euid = geteuid();
+    int ruid = getuid();
+    int euid = geteuid();
 
     /* get user input */
     scanf("%50s", buffer);
