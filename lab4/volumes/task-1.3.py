@@ -8,14 +8,15 @@ hostname = "google.com"
 # you can see how many routers there are 
 # from you to your destination.
 
-upper_bound = 2
+upper_bound = 30
 
-for i in range(1, upper_bound):
-    pkt = IP(dst=hostname, ttl=i) / UDP(dport=33434)
-    reply = sr1(pkt, verbose=0)
+for ttl in range(1, upper_bound+1):
+    pkt = IP(dst=hostname, ttl=ttl) / UDP(dport=33434)
+    reply = sr1(pkt, timeout = 2, verbose=0)
     if reply == None:
-        break
+        print(f"{ttl} --> no reply (The router in the middle did not send back an ICMP message)")
     elif reply.type == 3:
         print("Done", reply.src)
+        break
     else:
-        print("%d hops away: " % i, reply.src)
+        print("%d hops away: " % ttl, reply.src)
